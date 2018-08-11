@@ -4,8 +4,9 @@
     }
     if(PHP_OS == 'Win'){
         define('SnowPHP',str_replace('\\','/',__DIR__));
+    }else{
+        define('SnowPHP',__DIR__);
     }
-    define('SnowPHP',__DIR__);
     define('CORE',SnowPHP.'/core');
     define('APP',SnowPHP.'/app');
     define('PUBLIC',SnowPHP.'/public');
