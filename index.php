@@ -1,4 +1,10 @@
 <?php
+    if(version_compare(PHP_VERSION,'7.0','<')){
+        die('PHP Version Should Not Be Lower Than 7.0');
+    }
+    if(PHP_OS == 'Win'){
+        define('SnowPHP',str_replace('\\','/',__DIR__));
+    }
     define('SnowPHP',__DIR__);
     define('CORE',SnowPHP.'/core');
     define('APP',SnowPHP.'/app');
