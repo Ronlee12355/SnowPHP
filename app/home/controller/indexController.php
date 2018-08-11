@@ -2,6 +2,6 @@
 namespace app\home\controller;
 class indexController{
     public function index(){
-        p('hello man');
+        p('hello man yess');
     }
 }

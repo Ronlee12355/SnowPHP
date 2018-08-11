@@ -1,4 +1,5 @@
 <?php
 return [
-    'TYPE'=>'file'
+    'TYPE'=>'file',
+    'PATH'=>RUNTIME.'/log'
 ];

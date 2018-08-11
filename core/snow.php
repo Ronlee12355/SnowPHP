@@ -2,6 +2,7 @@
 namespace core;
 use core\lib\route as route;
 use core\lib\config as config;
+use core\lib\log as log;
 class snow{
     static private $_module;
     static private $_action;
@@ -24,17 +25,31 @@ class snow{
     static public function run(){
         date_default_timezone_set(config::getConfig('TIME_ZONE'));
         $route=new route();
-        $module=$route->module;
-        $action=$route->action;
-        $controlFile=APP.'/'.$module.'/controller/'.$route->control.'Controller.php';
+        self::$_module=$route->module;
+        self::$_action=$route->action;
+        $action=self::$_action;
+        self::$_control=$route->control;
+        $controlFile=APP.'/'.self::$_module.'/controller/'.self::$_control.'Controller.php';
 
+        log::init();
+        $logMeg=[];
         if (is_file($controlFile)) {
-            include $controlFile;
-            $ctlClass='\\app\\'.$module.'\controller\\'.$route->control.'Controller';
+            $ctlClass='\\app\\'.self::$_module.'\controller\\'.self::$_control.'Controller';
             $ctl=new $ctlClass();
+            $logMeg['module']=self::$_module;
+            $logMeg['control']=self::$_control;
+            $logMeg['action']=self::$_action;
+            $logMeg['status']='success';
+            log::writeLog($logMeg);
             $ctl->$action();
+            
         } else {
-            throw new \Exception('Cannot find the controller file '.$route->control);
+            $logMeg['module']=self::$_module;
+            $logMeg['control']=self::$_control;
+            $logMeg['action']=self::$_action;
+            $logMeg['status']='fail';
+            log::writeLog($logMeg);
+            throw new \Exception('Cannot find the controller file '.self::$_control);
         }
     }
 }
