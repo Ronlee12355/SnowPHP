@@ -20,4 +20,20 @@ class config{
         self::$_config[$file]=$config;
         return $config[$name];
     }
+
+    static public function getAllConfig($file='log'){
+        if(isset(self::$_config[$file])){
+            return self::$_config[$file];
+        }
+
+        $fileName=CORE.'/common/config/'.$file.'.php';
+        if(is_file($fileName)){
+            $config=require($fileName);
+        }else{
+            throw new \Exception("No Such File");
+        }
+
+        self::$_config[$file]=$config;
+        return $config;
+    }
 }
