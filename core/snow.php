@@ -7,7 +7,7 @@ class snow{
     static private $_module;
     static private $_action;
     static private $_control;
-
+    public $assign;
     static public function loadAuto(string $class){
         $classInclude=[];
         if (isset($classInclude[$class])) {
@@ -50,6 +50,27 @@ class snow{
             $logMeg['status']='fail';
             log::writeLog($logMeg);
             throw new \Exception('Cannot find the controller file '.self::$_control);
+        }
+    }
+
+    public function assign($name,$value){
+        $this->assign[$name]=$value;
+    }
+
+    public function render($viewFile=''){
+        if($viewFile !== '' && strstr($viewFile,'/')){
+            $viewFile=APP.'/'.self::$_module.'/view//'.$viewFile.'.html';
+        }else if($viewFile !== ''){
+            $viewFile=APP.'/'.self::$_module.'/view//'.self::$_control.'/'.$viewFile.'.html';
+        }else{
+            $viewFile=APP.'/'.self::$_module.'/view//'.self::$_control.'/'.self::$_action.'.html';
+        }
+
+        if(is_file($viewFile)){
+            extract($this->assign);
+            include $viewFile;
+        }else{
+            throw new \Exception('No such file');
         }
     }
 }
