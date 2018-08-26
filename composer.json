@@ -1,7 +1,7 @@
 {
     "name": "Ronlee12355/SnowPHP",
-    "description": "The SnowPHP framework",
-    "keywords": ["framework", "SnowPHP","PSR4"],
+    "description": "The PHP framework known as SnowPHP created by Ron Lee",
+    "keywords": ["framework", "SnowPHP","PSR4","PHP","composer"],
     "license": "MIT",
     "type": "project",
     "require": {
