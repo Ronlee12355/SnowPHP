@@ -61,3 +61,8 @@ function get(string $name,string $type='string'){
             break;
     }
 }
+
+function jump(string $url){
+    header('Location: '.$url);
+    exit();
+}
