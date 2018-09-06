@@ -42,3 +42,22 @@ function post(string $name,string $type='string'){
             break;
     }
 }
+
+function get(string $name,string $type='string'){
+    if(!isset($_GET[$name])){
+        throw new Exception("No such value in the get");
+    }
+
+    switch ($type) {
+        case 'int':
+            return(intval(trim($_GET[$name])));
+            break;
+        case 'string':
+            $_GET[$name]=trim($_GET[$name]);
+            $_GET[$name]=strip_tags($_GET[$name]);
+            return(strval(addslashes($_GET[$name])));
+        default:
+            return(strval(trim(addslashes($_GET[$name]))));
+            break;
+    }
+}
