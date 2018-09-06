@@ -23,3 +23,22 @@ function trimData(string $data):string{
     $data=htmlspecialchars($data);
     return $data;
 }
+
+function post(string $name,string $type='string'){
+    if(!isset($_POST[$name])){
+        throw new Exception("No such value in the post");
+    }
+
+    switch ($type) {
+        case 'int':
+            return(intval(trim($_POST[$name])));
+            break;
+        case 'string':
+            $_POST[$name]=trim($_POST[$name]);
+            $_POST[$name]=strip_tags($_POST[$name]);
+            return(strval(addslashes($_POST[$name])));
+        default:
+            return(strval(trim(addslashes($_POST[$name]))));
+            break;
+    }
+}
