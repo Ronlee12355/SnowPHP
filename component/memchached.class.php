@@ -1,5 +1,5 @@
 <?php
 namespace component;
-class memcachedClass{
+class Mem{
     
 }

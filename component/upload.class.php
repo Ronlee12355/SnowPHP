@@ -1,6 +1,6 @@
 <?php
 namespace component;
-class uploadClass{
+class Upload{
     public $allow_file_type=[];
     protected $file_name;
     public $file_size=8888888;

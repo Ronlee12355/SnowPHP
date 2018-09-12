@@ -1,5 +1,5 @@
 <?php
 namespace component;
-class verificateClass{
+class Verify{
     
 }
