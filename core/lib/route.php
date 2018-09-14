@@ -1,6 +1,8 @@
 <?php
 namespace core\lib;
+
 use core\lib\config as config;
+
 class route{
     public $module;
     public $control;

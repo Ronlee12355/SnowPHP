@@ -1,8 +1,10 @@
 <?php
 namespace core;
+
 use core\lib\route as route;
 use core\lib\config as config;
 use core\lib\log as log;
+
 class snow{
     static private $_module;
     static private $_action;

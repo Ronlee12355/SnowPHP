@@ -1,6 +1,8 @@
 <?php
 namespace core\lib;
+
 use core\lib\config;
+
 class model extends \PDO{
     public function __construct(){
         $db=config::getAllConfig('database');

@@ -1,5 +1,6 @@
 <?php
 namespace core\lib;
+
 class config{
     static private $_config=[];
     static public function getConfig(string $name, string $file='config'){
