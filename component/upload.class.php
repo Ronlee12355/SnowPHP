@@ -1,5 +1,6 @@
 <?php
 namespace component;
+
 class Upload{
     public $allow_file_type=[];
     protected $file_name;
