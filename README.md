@@ -4,7 +4,7 @@
 
 ## Looking forward to your pull requests
 
-1. Follow the rules of PSR4
+1. Follow the rules of PSR-1,PSR-2,PSR-3 and PSR-4
 2. Standard MVC frames
 3. Namespace and class autoload used
 4. Database: MySQL(using PDO in the back)
