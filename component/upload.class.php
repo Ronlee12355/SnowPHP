@@ -8,11 +8,24 @@ class Upload{
     public $ext;
     public $allow_mime=[];
     public $destination;
-    protected $error;
+    public $upload_file_name;
+    protected $error='';
+    protected $final_desc;
     public function __construct($fileName='file'){
         $this->file_name=$_FILES[$fileName];
     }
     public function uploadFile(){
+        if($this->checkExt() && $this->checkFileSize() && $this->checkHttpUpload() && $this->checkMime() && $this->checkVaildDest() && $this->checkError()){
+            $result=move_uploaded_file($this->file_name['tmp_name'],$this->final_desc);
+            if(!$result){
+                $this->error='Uploading file failed';
+            }
+
+            if($this->error !== ''){
+                $this->showError();
+            }
+            return $this->final_desc;
+        }
         
     }
     private function checkError(){
@@ -80,7 +93,18 @@ class Upload{
         return true;
     }
     private function checkVaildDest(){
-        
+        if($this->destination == "" || $this->upload_file_name==''){
+            $this->error="Please specific your destinate and upload file name";
+            return false;
+        }
+        if(!is_dir($this->destination)){
+            mkdir($this->destination,0777,true);
+        }
+        $this->final_desc=$this->destination.'/'.$this->upload_file_name;
+        if(file_exists($this->final_desc)){
+            $this->error="File already exists";
+            return false;
+        }
     }
     private function checkFileSize(){
         if($this->file_name['size'] > $this->file_size){
