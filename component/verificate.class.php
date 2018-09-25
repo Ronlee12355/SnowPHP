@@ -7,10 +7,18 @@ class Verify{
     private $_num_of_code;
     private $_file_type;
     private $_image;
+    public $font=6;
+    private $_code='abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     public function __construct($width=null,$height=null,$code_num=4,$file_type='png'){
         if(is_null($width) || is_null($height)){
             return false;
         }
+        if(session_status() == PHP_SESSION_DISABLED){
+            return false;
+        }elseif(session_status() == PHP_SESSION_NONE){
+            session_start();
+        }
+        $_SESSION['verify_code']='';
         $this->_width=$width;
         $this->_height=$height;
         $this->_num_of_code=$code_num;
@@ -30,6 +38,17 @@ class Verify{
 
     public function vetificateCode(){
         
+    }
+
+    public function getCode(){
+        for ($i=0; $i < strlen($this->_num_of_code); $i++) { 
+            $num=substr($this->_code,rand(0,strlen($this->_code)-1),1);
+            $_SESSION['verify_code'].=$num;
+            $color=imagecolorallocate($this->_image,rand(0,120),rand(0,120),rand(0,120));
+            $x=($i*$this->_width)/$this->_num_of_code+rand(5,9);
+            $y=rand(0,intval(($this->_height)/3));
+            imagestring($this->_image,$this->font,$x,$y,$num,$color);
+        }
     }
 
     public function __destruct(){
