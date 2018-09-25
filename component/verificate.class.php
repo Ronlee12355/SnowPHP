@@ -30,7 +30,8 @@ class Verify{
 
     private function makePoint(){
         for ($i=0; $i < 200; $i++) { 
-            imagestring();
+            $color=imagecolorallocate($this->_image,rand(50,200),rand(50,200),rand(50,200));
+            imagesetpixel($this->_image,rand(0,$this->_width),rand(0,$this->_height),$color);
         }
     }
 
