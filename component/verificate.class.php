@@ -30,7 +30,7 @@ class Verify{
 
     private function makePoint(){
         for ($i=0; $i < 200; $i++) { 
-            
+            imagestring();
         }
     }
 
