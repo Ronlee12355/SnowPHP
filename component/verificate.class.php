@@ -36,7 +36,10 @@ class Verify{
     }
 
     private function makeLine(){
-        
+        for ($i=0; $i < 200; $i++) { 
+            $color=imagecolorallocate($this->_image,rand(80,230),rand(80,230),rand(80,230));
+            imageline($this->_image,rand(0,$this->_width),rand(0,$this->_height),rand(0,$this->_width),rand(0,$this->_height),$color);
+        }
     }
 
     public function vetificateCode(){
