@@ -41,14 +41,16 @@ class Verify{
     }
 
     public function getCode(){
+        $final_code='';
         for ($i=0; $i < strlen($this->_num_of_code); $i++) { 
             $num=substr($this->_code,rand(0,strlen($this->_code)-1),1);
-            $_SESSION['verify_code'].=$num;
+            $final_code.=$num;
             $color=imagecolorallocate($this->_image,rand(0,120),rand(0,120),rand(0,120));
             $x=($i*$this->_width)/$this->_num_of_code+rand(5,9);
             $y=rand(0,intval(($this->_height)/3));
             imagestring($this->_image,$this->font,$x,$y,$num,$color);
         }
+        $_SESSION['verify_code']=$final_code;
     }
 
     public function __destruct(){
