@@ -1,6 +1,6 @@
 <?php
 
-function p($var){
+function showMsg($var){
     if(is_bool($var)){
         var_dump($var);
     }elseif(is_null($var)){
@@ -66,4 +66,11 @@ function get(string $name,string $type='string'){
 function jump(string $url){
     header('Location: '.$url);
     exit();
+}
+
+function IS_AJAX() {
+    if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'xmlhttprequest'){
+        return true;
+    }
+    return false;
 }
