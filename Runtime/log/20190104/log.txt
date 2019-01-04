@@ -1,0 +1,5 @@
+2019-01-04 10:54:00  {"module":"home","control":"index","action":"index","status":"success"}
+2019-01-04 10:54:00  {"module":"favicon.ico","control":"index","action":"index","status":"fail"}
+2019-01-04 10:54:03  {"module":"home","control":"index","action":"index","status":"success"}
+2019-01-04 10:54:03  {"module":"favicon.ico","control":"index","action":"index","status":"fail"}
+2019-01-04 10:59:11  {"module":"home","control":"index","action":"index","status":"success"}
