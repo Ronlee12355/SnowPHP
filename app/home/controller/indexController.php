@@ -6,6 +6,7 @@ use core\lib\model;
 class indexController{
     public function index(){
        $model = new model();
-       dump($model);
+       $res = $model->select('ms_essay','*');
+       dump($res);
     }
 }
