@@ -1,9 +1,9 @@
 <?php
     return [
-        'DATABASE_TYPE'=>'mysql',
-        'DATABASE_NAME'=>'use',
-        'SERVER'=>'localhost',
-        'USERNAME'=>'root',
-        'PASSWORD'=>'123456',
-        'CHARSET'=>'UTF8',
+        'database_type' => 'mysql',
+		'database_name' => 'mySite',
+		'server' => 'localhost',
+		'username' => 'root',
+        'password' => 'Ronlee199512',
+        'charset' => 'utf8'
     ];

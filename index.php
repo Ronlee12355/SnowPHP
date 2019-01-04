@@ -18,7 +18,6 @@
         $whoops = new \Whoops\Run;
         $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
         $whoops->register();
-        dump($_SERVER);
         ini_set('debug_errors','on');
     } else {
         ini_set('debug_errors','off');
