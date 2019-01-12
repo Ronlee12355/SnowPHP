@@ -1,8 +1,8 @@
 # SnowPHP
 
-## A self-created PHP framework using PHP7.0   
+## A self-created PHP framework using PHP7.0 and PDO-MySQL
 
-## Looking forward to your pull requests
+## Looking forward to your pull requests and issues
 
 1. Follow the rules of PSR-1,PSR-2,PSR-3 and PSR-4
 2. Standard MVC frames
@@ -12,3 +12,10 @@
 6. Front-end Framework:[Materialze](http://www.materializecss.cn)
 7. With easy-to-understand architecture
 8. Made from a bioinformatician,LOL
+
+## Plugins contains there:
+
+* File upload class file
+* Verification code sealed class  
+
+

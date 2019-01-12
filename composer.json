@@ -10,6 +10,14 @@
         "symfony/var-dumper": "*",
         "catfan/medoo": "*"
     },
+    "authors": [
+        {
+            "name": "Jiang Li",
+            "email": "ronlee12355@outlook.com",
+            "homepage": "http://www.ronleecww.cn",
+            "role": "Developer"
+        }
+    ],
     "config": {
         "preferred-install": "dist"
     },
