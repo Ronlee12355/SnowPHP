@@ -74,3 +74,14 @@ function IS_AJAX() {
     }
     return false;
 }
+
+function runCommand(string $command, bool $return = true){
+    if(!is_callable("exec")){
+        return false;
+    }
+    if(is_bool($return) && $return == true){
+        return exec(escapeshellcmd($command));
+    }else{
+        exec(escapeshellcmd($command));
+    }
+}
